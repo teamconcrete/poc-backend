@@ -6,8 +6,7 @@ node{
            git branch: develop,
                url: "https://github.com/teamconcrete/poc-backend.git"
 
-           sh "rm -rf ../Build/poc-backend/
-               mkdir ../Build/poc-backend
+           sh  "mkdir ../Build/poc-backend
                mv * ../Build/poc-backend"
        }
 
