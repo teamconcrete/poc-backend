@@ -12,9 +12,12 @@ node{
    }
 
    stage("Build"){
+      
+      steps{ 
         sh "cd /var/lib/jenkins/workspace/Build/poc-backend && gradle wrapper"
 
         archiveArtifacts artifacts: "**/poc-backend/build/test-results/*.xml"
+      }   
 
    }
 
