@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class VitrineController {
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> fazendoLogin() {
+    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> get() {
         return null;
     }
 }
