@@ -22,14 +22,19 @@ repositories {
 	mavenCentral()
 }
 
-
 ext {
 	springCloudVersion = 'Dalston.SR4'
 }
 
 dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter')
+    compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    runtime('org.springframework.boot:spring-boot-devtools')
+    runtime('com.h2database:h2')
 }
 
 dependencyManagement {
