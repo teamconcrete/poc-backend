@@ -5,16 +5,13 @@ pipeline {
          stage( "Checkout"){
             steps{
                 git url: 'https://github.com/teamconcrete/poc-backend.git', branch: 'develop'
-
-                sh "rm -rf ../Build/poc-backend/ && mkdir ../Build/poc-backend && mv * ../Build/poc-backend"
             }
 
          }
 
          stage("Build"){
             steps{ 
-              sh "cd /var/lib/jenkins/workspace/Build/poc-backend && gradle wrapper"
-              sh "gradle build --stacktrace"
+              sh "gradle wrapper && gradle build --stacktrace"
               archiveArtifacts artifacts: '**', fingerprint: true
               
             }
