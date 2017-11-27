@@ -12,7 +12,7 @@ pipeline {
          stage("Build"){
             steps{ 
               sh "gradle wrapper && gradle build --stacktrace"
-              archiveArtifacts artifacts: '**', fingerprint: true
+              archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
               
             }
          }
