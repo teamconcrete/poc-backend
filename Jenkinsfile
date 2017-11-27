@@ -25,7 +25,7 @@ pipeline {
             }
             steps {
                echo 'Sucesso'
-               slackSend channel: "#devops-onboarding",color: '#FFFF00', message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+               slackSend channel: "#devops-onboarding",color: 'BLUE', message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
             }
             
         }
