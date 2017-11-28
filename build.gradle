@@ -39,7 +39,6 @@ dependencies {
     compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.17'
     compile group: 'io.swagger', name: 'swagger-core', version: '1.5.17'
 
-    //compile group: 'com.graphql-java', name: 'graphql-java', version: '6.0'
     compile('com.graphql-java:graphql-java:3.0.0')
     compile('com.graphql-java:graphql-java-tools:3.2.0')
     compile('com.graphql-java:graphql-java-servlet:4.0.0')
