@@ -2,19 +2,20 @@ buildscript {
 	ext {
 		springBootVersion = '1.5.8.RELEASE'
 	}
+
 	repositories {
 		mavenCentral()
 	}
-	dependencies {
+
+    dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
-group = 'br.com.concrete'
+group = 'br.com.concrete.backend'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
@@ -29,12 +30,22 @@ ext {
 dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter')
     compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
     runtime('org.springframework.boot:spring-boot-devtools')
+
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
     runtime('com.h2database:h2')
+
+    compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.17'
+    compile group: 'io.swagger', name: 'swagger-core', version: '1.5.17'
+
+    //compile group: 'com.graphql-java', name: 'graphql-java', version: '6.0'
+    compile('com.graphql-java:graphql-java:3.0.0')
+    compile('com.graphql-java:graphql-java-tools:3.2.0')
+    compile('com.graphql-java:graphql-java-servlet:4.0.0')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile group: 'com.jayway.restassured', name: 'rest-assured', version: '2.9.0'
 }
 
 dependencyManagement {
@@ -42,6 +53,7 @@ dependencyManagement {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
 }
+
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.10'
+    gradleVersion = '4.3.1'
 }
