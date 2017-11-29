@@ -16,9 +16,6 @@ pipeline {
               
             }
          }
-         stage('Publish') {
-            nexusPublisher nexusInstanceId: 'localNexus', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '**/build/libs/*.jar']], mavenCoordinate: [artifactId: 'jenkins-jar', groupId: 'org.jenkins-ci.main', packaging: 'jar', version: '1.0']]]
-         }
         
         stage('Send Message') {
             when {
