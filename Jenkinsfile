@@ -17,6 +17,26 @@ pipeline {
             }
          }
         
+        stage ('NexusArtifactUploaderJob') {
+            steps {
+                nexusArtifactUploader {
+                    nexusVersion('nexus2')
+                    protocol('http')
+                    nexusUrl('nexus.csteam.tk/nexus')            
+                    repository('NexusArtifactUploader')
+                }
+                    artifact {
+                        artifactId('nexus-artifact-uploader')
+                        type('jar')
+                        classifier('debug')
+                        file('**/build/libs/*.jar')
+                  
+                   }
+            }
+        }
+        
+        
+        
         stage('Send Message') {
             when {
               expression {
