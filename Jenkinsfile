@@ -11,13 +11,15 @@ pipeline {
 
          stage("Build"){
             steps{ 
-              sh "gradle wrapper && gradle build --stacktrace"
+              sh "gradle clean assemble && gradle wrapper  && gradle build --stacktrace"
               archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
               
             }
          }
         
-        stage('Deploy') {
+        
+        
+        stage('Send Message') {
             when {
               expression {
                 currentBuild.result == null || currentBuild.result == 'SUCCESS' 
